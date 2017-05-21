@@ -34,7 +34,7 @@ var vue = new Vue({
     el: "#wordText",
     data: {
         //原始用户评论信息
-        textcontent: dataobj,
+        textcontent: dataobj.reverse(),
         textcontents: [],
         //当前用户信息
         showflag: false
