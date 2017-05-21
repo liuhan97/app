@@ -68,7 +68,11 @@ ul li {
 a img {
     border: none;
 }
-
+a {
+    -webkit-tap-highlight-color: transparent;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+}
 html {
     font-size: 62.5%;
     font-family: arial, "Hiragino Sans GB", "Microsoft Yahei", "微软雅黑", "宋体", Tahoma, Arial, Helvetica, STHeiti;
@@ -85,6 +89,9 @@ html {
     border-radius: 0;
     -webkit-appearance: none;
     font-size: 1.6rem;
+    -webkit-tap-highlight-color: transparent;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
 }
 
 body {
@@ -134,6 +141,9 @@ body {
     resize: none;
     -webkit-appearance: none;
     font-size: 1.6rem;
+    -webkit-tap-highlight-color: transparent;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
 }
 
 #wordText .wrapbox .box .bluebtn {
