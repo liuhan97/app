@@ -58,7 +58,7 @@ var vue = new Vue({
             var tempobj = {}; //存储插入数据的容器
 
             var localData = JSON.parse(localStorage.getItem("data"));
-            console.log(localData);
+            console.log(localData[0]);
             //判断开始的时候是否是否为空
             if (localData.length == 0) {
                 index = 1;
