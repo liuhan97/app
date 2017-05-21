@@ -54,7 +54,7 @@ var vue = new Vue({
         //添加工作记录
         addItem: function(e) {
             var e = e || event;
-
+            var index = null;
             var tempobj = {}; //存储插入数据的容器
 
             var localData = JSON.parse(localStorage.getItem("data"));
