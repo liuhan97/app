@@ -24,7 +24,6 @@ var dataobj, data,index;
 //判断用户是否是第一次使用（专指没有清空过缓存那些）
 if (localStorage.getItem("data")) {
     dataobj = JSON.parse(localStorage.getItem("data"));
-    console.log(dataobj)
 } else {
     dataobj = [];
     data = localStorage.setItem("data", JSON.stringify(dataobj));
@@ -58,7 +57,6 @@ var vue = new Vue({
             var tempobj = {}; //存储插入数据的容器
 
             var localData = JSON.parse(localStorage.getItem("data"));
-            console.log(localData[0]);
             //判断开始的时候是否是否为空
             if (localData.length == 0) {
                 index = 1;
