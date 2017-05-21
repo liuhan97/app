@@ -30,21 +30,21 @@
         </div>
 
         <div class="contentlist">
-            <div class="item" v-for="(value, index) in textcontents orderBy 'index' '-1'">
-                <p class="textcontent"><i class="icon-tags"></i>&nbsp;{{value.content}}</p>
+            <div class="item" v-for="(value, index) in textcontents>
+                <p class=" textcontent "><i class="icon-tags "></i>&nbsp;{{value.content}}</p>
                 <p>
-                    <span class="delbtn" @click="delItem(index)"><i class="icon-remove-circle"></i>&nbsp;删除</span>
-                    <span class="data"><i class="icon-calendar"></i>&nbsp;{{value.data}}</span>
+                    <span class="delbtn " @click="delItem(index) "><i class="icon-remove-circle "></i>&nbsp;删除</span>
+                    <span class="data "><i class="icon-calendar "></i>&nbsp;{{value.data}}</span>
                 </p>
             </div>
         </div>
 
-        <div class="bottombtn">
-            <div class="bluebtn" @click="showWrap()">我要记录</div>
+        <div class="bottombtn ">
+            <div class="bluebtn " @click="showWrap() ">我要记录</div>
         </div>
     </div>
 </body>
 
-<script src="js/index.js"></script>
+<script src="js/index.js "></script>
 
 </html>
