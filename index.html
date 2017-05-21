@@ -31,7 +31,7 @@
         </div>
 
         <div class="contentlist ">
-            <div class="item " v-for="(value, index) in textcontent ">
+            <div class="item " v-for="(value, index) in textcontent | orderBy 'id'">
                 <p class="textcontent" v-text="value.content"></p>
                 <p>
                     <span class="delbtn " @click="delItem(index) "><i class="icon-remove-circle "></i>&nbsp;删除</span>
