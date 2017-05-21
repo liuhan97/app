@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>卖花记录本</title>
+    <link rel="apple-touch-icon" sizes="57x57" href="img/app.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta content="telephone=yes" name="format-detection" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="white">
+    <meta name="x5-fullscreen" content="true">
+    <meta name="apple-touch-fullscreen" content="yes">
+    <link rel="stylesheet" href="css/font-awesome.min.css" />
+    <link rel="stylesheet" href="css/index.css" />
+    <script type="text/javascript" src="js/vue.min.js"></script>
+
+</head>
+
+<body>
+    <div id="wordText">
+
+        <div class="wrapbox" v-bind:class="{'active':showflag}">
+            <div class="box">
+                <form>
+                    <input type="number" placeholder=" 多少钱一斤花（块）" class="num fl" id="price">
+                    <input type="number" placeholder=" 多少斤花（斤）" class="num fr" id="weight">
+                    <textarea placeholder=" 请输入你要记录的内容，限定200个字 " maxlength="200" class="words"></textarea>
+                    <div class="bluebtn" @click="addItem()">立即保存</div>
+                </form>
+            </div>
+        </div>
+
+        <div class="contentlist">
+            <div class="item" v-for="(value, index) in textcontent">
+                <p class="textcontent"><i class="icon-tags"></i>&nbsp;{{value.content}}</p>
+                <p>
+                    <span class="price number"><i class="icon-strikethrough"></i>&nbsp;单价：(<strong>{{value.price}}</strong>)元/斤</span>
+                    <span class="weight number"><i class="icon-trophy"></i>&nbsp;重量：(<strong>{{value.weight}}</strong>)斤</span>
+                    <span class="total number"><i class="icon-strikethrough"></i>&nbsp;合计：(<strong>{{value.weight*value.price}}</strong>)元</span>
+                </p>
+                <p>
+                    <span class="delbtn" @click="delItem(index)"><i class="icon-remove-circle"></i>&nbsp;删除</span>
+                    <span class="data"><i class="icon-calendar"></i>&nbsp;{{value.data}}</span>
+                </p>
+            </div>
+        </div>
+
+        <div class="bottombtn">
+            <div class="bluebtn" @click="showWrap()">我要记录</div>
+        </div>
+    </div>
+</body>
+
+<script src="js/index.js"></script>
+
+</html>

@@ -1,0 +1,17 @@
+@charset "utf-8";
+@import "base.scss";
+.bluebtn{
+	width:100%;
+	height:50px;
+	line-height:50px;
+	text-align:center;
+	color:#fff;
+	background:#3399FF;
+}
+$detaicolor:#666666;
+$timecolor:#999999;
+$bodybg:#E4E4E4;
+body{
+	background:$bodybg;
+}
+

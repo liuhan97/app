@@ -1,0 +1,222 @@
+@charset "UTF-8";
+body,
+div,
+span,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+code,
+del,
+dfn,
+em,
+img,
+q,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+dialog,
+figure,
+footer,
+header,
+hgroup,
+nav,
+section {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    vertical-align: baseline;
+}
+
+a {
+    text-decoration: none;
+}
+
+ul li {
+    list-style-type: none;
+}
+
+a img {
+    border: none;
+}
+
+a {
+    -webkit-tap-highlight-color: transparent;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+}
+
+html {
+    font-size: 62.5%;
+    font-family: arial, "Hiragino Sans GB", "Microsoft Yahei", "微软雅黑", "宋体", Tahoma, Arial, Helvetica, STHeiti;
+}
+
+.bluebtn {
+    width: 100%;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    color: #fff;
+    background: #39F;
+    border: 1px solid #39F;
+    border-radius: 0;
+    -webkit-appearance: none;
+    font-size: 2rem;
+    -webkit-tap-highlight-color: transparent;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+}
+
+body {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    background: #E4E4E4;
+    padding: 0 0 6rem 0;
+}
+
+#wordText .wrapbox {
+    display: none;
+    position: fixed;
+    z-index: 99999;
+    width: 94%;
+    height: 100%;
+    padding: 0 3%;
+    font-size: 2rem;
+    background: url(../img/maskbg.png);
+}
+
+#wordText .active {
+    display: block;
+}
+
+#wordText .wrapbox .box {
+    position: relative;
+    top: 50%;
+    padding: 2rem;
+    margin: -16.7rem auto 0;
+    background: #fff;
+    border-radius: 2.4rem;
+}
+
+#wordText .wrapbox .box textarea {
+    width: 99.5%;
+    height: 17.1rem;
+    margin: 0;
+    padding: 0;
+    box-shadow: 0 0 0.1rem #ccc;
+    border: 1px solid #ccc;
+    resize: none;
+    -webkit-appearance: none;
+    font-size: 1.6rem;
+    -webkit-tap-highlight-color: transparent;
+}
+
+#wordText .wrapbox .box .num {
+    height: 4rem;
+    width: 41%;
+    margin-bottom: 1rem;
+    font-size: 1.6rem;
+    box-shadow: 0 0 0.1rem #ccc;
+    border: 1px solid #ccc;
+    -webkit-appearance: none;
+    -webkit-tap-highlight-color: transparent;
+}
+
+#wordText .contentlist .number {
+    display: block;
+    margin: 0.5rem 0;
+    color: #666;
+    font-size: 1.5rem;
+}
+
+#wordText .contentlist .number strong {
+    font-size: 1.6rem;
+    color: red;
+    margin: 0 0.2rem;
+}
+
+#wordText .wrapbox .box .fl {
+    float: left;
+}
+
+#wordText .wrapbox .box .fr {
+    float: right;
+}
+
+#wordText .wrapbox .box .bluebtn {
+    margin-top: 0.8rem;
+    border-radius: 0.5rem;
+}
+
+#wordText .contentlist {
+    padding: 3%;
+}
+
+#wordText .contentlist .item {
+    padding: 3%;
+    margin-bottom: 1.6rem;
+    background: #fff;
+    border-radius: 1.2rem;
+    box-shadow: 0 0.4rem 0 #BCBCBC;
+}
+
+#wordText .contentlist .textcontent {
+    margin-bottom: 1rem;
+    color: #666;
+    line-height: 24px;
+    font-size: 1.8rem;
+}
+
+#wordText .bottombtn {
+    position: fixed;
+    bottom: 0;
+    width: 94%;
+    padding: 3%;
+    background: #fff;
+}
+
+#wordText .contentlist .delbtn {
+    margin-left: 0.5rem;
+    color: #3399FF;
+    font-size: 1.4rem;
+    -webkit-tap-highlight-color: transparent;
+}
+
+#wordText .contentlist .data {
+    float: right;
+    color: #999;
+    font-size: 1.4rem;
+}
