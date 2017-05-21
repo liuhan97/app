@@ -40,7 +40,7 @@ var v = new Vue({
     },
     computed: {
         textcontents: function() {
-            return textcontent.reverse();
+            return this.textcontent.reverse();
         }
     },
     methods: {
