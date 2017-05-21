@@ -75,7 +75,7 @@ var vue = new Vue({
                 tempobj.content = text; //设置内容
                 tempobj.data = data; //设置时间
 
-                localData.push(tempobj);
+                localData.unshift(tempobj);
                 console.log(localData);
                 this.textcontent = localData; //当前对象添加新增内容
 
