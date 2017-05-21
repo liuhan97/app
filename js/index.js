@@ -20,10 +20,11 @@ Date.prototype.format = function(fmt) {
     return fmt;
 };
 
-var dataobj, data;
+var dataobj, data,index;
 //判断用户是否是第一次使用（专指没有清空过缓存那些）
 if (localStorage.getItem("data")) {
-    dataobj = (JSON.parse(localStorage.getItem("data"))).reverse();
+    dataobj = JSON.parse(localStorage.getItem("data"));
+    console.log(dataobj)
 } else {
     dataobj = [];
     data = localStorage.setItem("data", JSON.stringify(dataobj));
@@ -53,17 +54,16 @@ var vue = new Vue({
         //添加工作记录
         addItem: function(e) {
             var e = e || event;
-            var index;
+
             var tempobj = {}; //存储插入数据的容器
 
             var localData = JSON.parse(localStorage.getItem("data"));
-            console.log(JSON.parse(localStorage.getItem("data")));
 
             //判断开始的时候是否是否为空
-            if (localData.length > 0) {
-                index = parseInt(localData[localData.length - 1].id) + 1;
-            } else {
+            if (localData.length == 0) {
                 index = 1;
+            } else {
+                index = parseInt(localData[0].id) + 1;
             }
 
             console.log(index);
@@ -76,11 +76,9 @@ var vue = new Vue({
                 tempobj.data = data; //设置时间
 
                 localData.unshift(tempobj);
-                console.log(localData);
                 this.textcontent = localData; //当前对象添加新增内容
 
                 localStorage.setItem("data", JSON.stringify(localData));
-                console.log(localStorage.getItem("data"));
                 document.getElementsByClassName("words")[0].value = "";
 
                 //切换隐藏
@@ -93,16 +91,12 @@ var vue = new Vue({
         },
         delItem: function(index) {
 
-
             this.textcontent.splice(index, 1); //删除vue数据中对应选项
 
             //删除本地localStorage中的对应的数据项
             var localData = JSON.parse(localStorage.getItem("data")); //先获取缓存数据
             localData.splice(index, 1); //删除缓存数据
             localStorage.setItem("data", JSON.stringify(localData)); //保存缓存数据
-
-
-
         }
     }
 });
