@@ -38,6 +38,11 @@ var v = new Vue({
         //当前用户信息
         showflag: false,
     },
+    computed: {
+        textcontents: function() {
+            return textcontent.reverse();
+        }
+    },
     methods: {
         showWrap: function() {
             //切换显示
