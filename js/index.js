@@ -30,20 +30,21 @@ if (localStorage.getItem("data")) {
 }
 
 
-var v = new Vue({
+var vue = new Vue({
     el: "#wordText",
     data: {
         //原始用户评论信息
         textcontent: dataobj,
         textcontents: [],
         //当前用户信息
-        showflag: false,
+        showflag: false
     },
+    /*
     computed: {
         textcontents: function() {
             return this.textcontent.reverse();
         }
-    },
+    },*/
     methods: {
         showWrap: function() {
             //切换显示
@@ -76,7 +77,7 @@ var v = new Vue({
 
                 localData.push(tempobj);
                 console.log(localData);
-                this.textcontent = localData; //当前对象添加新增内容
+                this.textcontents = localData; //当前对象添加新增内容
 
                 localStorage.setItem("data", JSON.stringify(localData));
                 console.log(localStorage.getItem("data"));
