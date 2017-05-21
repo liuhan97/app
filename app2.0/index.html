@@ -35,9 +35,9 @@
             <div class="item" v-for="(value, index) in textcontent">
                 <p class="textcontent"><i class="icon-tags"></i>&nbsp;{{value.content}}</p>
                 <p>
-                    <span class="price number"><i class="icon-strikethrough"></i>&nbsp;茉莉花单价：(<strong>{{value.price}}</strong>)元/斤</span>
-                    <span class="weight number"><i class="icon-trophy"></i>&nbsp;茉莉花重量：(<strong>{{value.weight}}</strong>)斤</span>
-                    <span class="total number"><i class="icon-strikethrough"></i>&nbsp;今天收入：(<strong>{{value.weight*value.price}}</strong>)元</span>
+                    <span class="price number"><i class="icon-strikethrough"></i>&nbsp;单价：(<strong>{{value.price}}</strong>)元/斤</span>
+                    <span class="weight number"><i class="icon-trophy"></i>&nbsp;重量：(<strong>{{value.weight}}</strong>)斤</span>
+                    <span class="total number"><i class="icon-strikethrough"></i>&nbsp;收入：(<strong>{{value.weight*value.price}}</strong>)元</span>
                 </p>
                 <p>
                     <span class="delbtn" @click="delItem(index)"><i class="icon-remove-circle"></i>&nbsp;删除</span>
