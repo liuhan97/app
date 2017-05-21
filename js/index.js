@@ -35,6 +35,7 @@ var v = new Vue({
     data: {
         //原始用户评论信息
         textcontent: dataobj,
+        textcontents: [],
         //当前用户信息
         showflag: false,
     },
