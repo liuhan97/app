@@ -4,10 +4,9 @@
 <head>
     <meta charset="utf-8">
     <title>工作记事本</title>
-    <html manifest="js/cache.manifest">
-    <link rel="apple-touch-icon" sizes="57x57" href="img/app.png">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
-    <meta name="apple-mobile-web-app-capable" content="yes">
+    <link rel="apple-touch-icon" sizes="57x57" href="img/app.png"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0"/>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
     <meta content="telephone=yes" name="format-detection" />
     <meta name="apple-mobile-web-app-status-bar-style" content="white">
     <meta name="x5-fullscreen" content="true">
@@ -21,8 +20,8 @@
 <body>
     <div id="wordText">
 
-        <div class="wrapbox " v-bind:class="{'active':showflag}">
-            <div class=" box ">
+        <div class="wrapbox" v-bind:class="{'active':showflag}">
+            <div class="box">
                 <form>
                     <textarea placeholder="请输入你要记录的内容，限定200个字 " maxlength="200 " class="words "></textarea>
                     <div class="bluebtn " @click="addItem()">立即保存</div>
@@ -31,7 +30,7 @@
         </div>
 
         <div class="contentlist ">
-            <div class="item " v-for="(value, index) in textcontent | orderBy 'id'">
+            <div class="item " v-for="(value, index) in textcontent">
                 <p class="textcontent" v-text="value.content"></p>
                 <p>
                     <span class="delbtn " @click="delItem(index) "><i class="icon-remove-circle "></i>&nbsp;删除</span>
