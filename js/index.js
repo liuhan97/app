@@ -77,7 +77,7 @@ var vue = new Vue({
 
                 localData.push(tempobj);
                 console.log(localData);
-                this.textcontents = localData; //当前对象添加新增内容
+                this.textcontent = localData; //当前对象添加新增内容
 
                 localStorage.setItem("data", JSON.stringify(localData));
                 console.log(localStorage.getItem("data"));
