@@ -23,7 +23,7 @@ Date.prototype.format = function(fmt) {
 var dataobj, data;
 //判断用户是否是第一次使用（专指没有清空过缓存那些）
 if (localStorage.getItem("data")) {
-    dataobj = JSON.parse(localStorage.getItem("data"));
+    dataobj = JSON.parse(localStorage.getItem("data")).reverse();
 } else {
     dataobj = [];
     data = localStorage.setItem("data", JSON.stringify(dataobj));
@@ -34,7 +34,7 @@ var vue = new Vue({
     el: "#wordText",
     data: {
         //原始用户评论信息
-        textcontent: dataobj.reverse(),
+        textcontent: dataobj,
         textcontents: [],
         //当前用户信息
         showflag: false
