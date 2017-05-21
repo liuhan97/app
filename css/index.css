@@ -181,6 +181,9 @@ body {
     margin-left: 0.5rem;
     color: #3399FF;
     font-size: 1.4rem;
+    -webkit-tap-highlight-color: transparent;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
 }
 
 #wordText .contentlist .data {
