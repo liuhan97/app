@@ -142,8 +142,6 @@ body {
     -webkit-appearance: none;
     font-size: 1.6rem;
     -webkit-tap-highlight-color: transparent;
-    -webkit-touch-callout: none;
-    -webkit-user-select: none;
 }
 
 #wordText .wrapbox .box .bluebtn {
@@ -182,8 +180,6 @@ body {
     color: #3399FF;
     font-size: 1.4rem;
     -webkit-tap-highlight-color: transparent;
-    -webkit-touch-callout: none;
-    -webkit-user-select: none;
 }
 
 #wordText .contentlist .data {
