@@ -36,7 +36,16 @@ var vue = new Vue({
         //原始用户评论信息
         textcontent: dataobj,
         textcontents: [],
-        //当前用户信息
+        //全部总计
+        totalCount:[
+            {totalWeight:'',totalIncome:''},
+            {hightWeight:'',hightIncome:''}
+        ],
+        //历史总计
+        hisCount:[
+            {totalWeight:'',totalIncome:''},
+            {hightWeight:'',hightIncome:''}
+        ],
         rcShowflag: false,
         allShowflag:false,
         crrShowflag:false
@@ -67,6 +76,19 @@ var vue = new Vue({
         },
         allshowWrap:function(){
             this.allShowflag = true;
+            var totalWeight=0,
+                totalIncome=0,
+                hightWeight=0,
+                hightIncome=0;
+
+            //获取本地缓存数据
+            var localData = JSON.parse(localStorage.getItem("data"));
+            for(var i = 0, len = localData.length; i < len; i++){
+                totalWeight += localData[i].weight;
+                totalIncome = totalIncome + ((localData[i].price*localData[i].weight)*100)/100;
+            }
+            this.totalCount[0].totalWeight = totalWeight;
+            this.totalCount[0].totalIncome = totalIncome;
         },
         //本月总计显示隐藏
         crrwraphide:function(){
@@ -116,7 +138,7 @@ var vue = new Vue({
                 document.getElementById("weight").value = "";
 
                 //切换隐藏
-                this.showflag = false;
+                this.rcShowflag = false;
 
             } else {
                 alert("请按要求输入的内容！");
