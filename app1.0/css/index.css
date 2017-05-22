@@ -162,7 +162,7 @@ body {
 
 #wordText .contentlist .textcontent {
     margin-bottom: 1rem;
-    color: #666;
+    color:orange;
     line-height: 24px;
     font-size: 1.8rem;
 }
