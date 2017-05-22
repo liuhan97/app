@@ -66,8 +66,8 @@ var vue = new Vue({
 
             console.log(index);
             var text = document.getElementsByClassName("words")[0].value;
-            var price = parseInt(document.getElementById("price").value);
-            var weight = parseInt(document.getElementById("weight").value);
+            var price = parseFloat(document.getElementById("price").value);
+            var weight = parseFloat(document.getElementById("weight").value);
 
             var data = new Date().format("yyyy-MM-dd hh:mm:ss");
 
