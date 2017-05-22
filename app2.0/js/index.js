@@ -37,7 +37,9 @@ var vue = new Vue({
         textcontent: dataobj,
         textcontents: [],
         //当前用户信息
-        showflag: false
+        rcShowflag: false,
+        allShowflag:false,
+        crrShowflag:false
     },
     /*
     computed: {
@@ -48,7 +50,7 @@ var vue = new Vue({
     methods: {
         //点击遮罩层消失
         wraphide:function(){
-            this.showflag = false;
+            this.rcShowflag = false;
         },
         //阻止冒泡
         stopPro:function(e){
@@ -57,7 +59,21 @@ var vue = new Vue({
         },
         showWrap: function() {
             //切换显示
-            this.showflag = true;
+            this.rcShowflag = true;
+        },
+        //全部总计显示隐藏
+        allwraphide:function(){
+            this.allShowflag = false;
+        },
+        allshowWrap:function(){
+            this.allShowflag = true;
+        },
+        //本月总计显示隐藏
+        crrwraphide:function(){
+            this.crrShowflag = false;
+        },
+        crrShowWrap:function(){
+            this.crrShowflag = true;
         },
         //添加工作记录
         addItem: function(e) {

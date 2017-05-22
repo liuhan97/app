@@ -175,7 +175,17 @@ body {
 #wordText .wrapbox .box .fr {
     float: right;
 }
+#wordText .wrapbox .box .countbox{
+    margin:1rem 0;
+}
 
+#wordText .wrapbox .box .countbox h1{
+    color:#666;
+    margin-bottom:1rem;
+}
+#wordText .wrapbox .box .countbox h3{
+    color:#ccc;
+}
 #wordText .wrapbox .box .bluebtn {
     margin-top: 0.8rem;
     border-radius: 0.5rem;
@@ -214,6 +224,7 @@ body {
     text-align: center;
     font-size:1.6rem;
     color:#3399FF;
+    -webkit-tap-highlight-color: transparent;
 }
 #wordText .contentlist .delbtn {
     margin-left: 0.5rem;
