@@ -46,6 +46,15 @@ var vue = new Vue({
         }
     },*/
     methods: {
+        //点击遮罩层消失
+        wraphide:function(){
+            this.showflag = false;
+        },
+        //阻止冒泡
+        stopPro:function(e){
+            e = e || event;
+            e.stopPropagation();
+        },
         showWrap: function() {
             //切换显示
             this.showflag = true;
@@ -64,17 +73,19 @@ var vue = new Vue({
                 index = parseInt(localData[0].id) + 1;
             }
 
-            console.log(index);
+            var numReg = /^\d+(\.\d+)?$/;    //小数字正则
             var text = document.getElementsByClassName("words")[0].value;
-            var price = parseFloat(document.getElementById("price").value);
-            var weight = parseFloat(document.getElementById("weight").value);
+            var price = document.getElementById("price").value;
+            var weight = document.getElementById("weight").value;
+            var floatprice = parseFloat(price);
+            var floatweight = parseFloat(weight);
 
             var data = new Date().format("yyyy-MM-dd hh:mm:ss");
-
-            if (text && (typeof(price) == "number") && (typeof(weight) == "number")) {
+            var flag = (text !== "" && price !== "" && weight !== "" && numReg.test(price) && numReg.test(weight));
+            if (flag){
                 tempobj.id = index; //设置id
-                tempobj.price = price; //设置花价
-                tempobj.weight = weight; //设置重量
+                tempobj.price = floatprice; //设置花价
+                tempobj.weight = floatweight; //设置重量
                 tempobj.content = text; //设置内容
                 tempobj.data = data; //设置时间
 
@@ -92,7 +103,7 @@ var vue = new Vue({
                 this.showflag = false;
 
             } else {
-                alert("请输入要记录的内容！");
+                alert("请按要求输入的内容！");
                 e.stopPropagation();
             }
         },

@@ -20,8 +20,8 @@
 <body>
     <div id="wordText">
 
-        <div class="wrapbox" v-bind:class="{'active':showflag}">
-            <div class="box">
+        <div class="wrapbox" v-bind:class="{'active':showflag}" @click="wraphide()">
+            <div class="box" @click="stopPro()">
                 <form>
                     <input type="number" placeholder="多少钱一斤花（块）" class="num fl" id="price">
                     <input type="number" placeholder="多少斤花（斤）" class="num fr" id="weight">
@@ -37,7 +37,7 @@
                 <p>
                     <span class="price number"><i class="icon-strikethrough"></i>&nbsp;单价：(<strong>{{value.price}}</strong>)元/斤</span>
                     <span class="weight number"><i class="icon-trophy"></i>&nbsp;重量：(<strong>{{value.weight}}</strong>)斤</span>
-                    <span class="total number"><i class="icon-strikethrough"></i>&nbsp;收入：(<strong>{{value.weight*value.price}}</strong>)元</span>
+                    <span class="total number"><i class="icon-strikethrough"></i>&nbsp;收入：(<strong>{{Math.round(value.weight*value.price*100)/100}}</strong>)元</span>
                 </p>
                 <p>
                     <span class="delbtn" @click="delItem(index)"><i class="icon-remove-circle"></i>&nbsp;删除</span>
@@ -47,7 +47,9 @@
         </div>
 
         <div class="bottombtn">
-            <div class="bluebtn" @click="showWrap()">我要记录</div>
+            <div class="savebtn" @click="showWrap()"><i class="icon-pencil"></i>&nbsp;我要记录</div>
+            <div class="currmonthbtn" @click="currentMonth()"><i class="icon-signal"></i>&nbsp;本月总计</div>
+            <div class="totalbtn" @click="totalbtn()"><i class="icon-bar-chart"></i>&nbsp;全部总计</div>
         </div>
     </div>
 </body>
