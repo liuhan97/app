@@ -144,7 +144,9 @@ body {
     font-size: 1.6rem;
     -webkit-tap-highlight-color: transparent;
 }
-
+#wordText .wrapbox .box textarea::-webkit-input-placeholder{
+    font-size:1.6rem;
+}
 #wordText .wrapbox .box .num {
     height: 4rem;
     width: 41%;
