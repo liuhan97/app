@@ -44,7 +44,7 @@ var vue = new Vue({
         //历史总计
         hisCount:[
             {totalWeight:'',totalIncome:''},
-            {hightWeight:'',hightIncome:''}
+            {hightWeight:'',hightIncome:'',hightPrice:''}
         ],
         rcShowflag: false,
         allShowflag:false,
@@ -79,6 +79,7 @@ var vue = new Vue({
             var totalWeight=0,
                 totalIncome=0,
                 hightWeight=0,
+                hightPrice=0,
                 hightIncome=0;
 
             //获取本地缓存数据
@@ -86,20 +87,27 @@ var vue = new Vue({
             for(var i = 0, len = localData.length; i < len; i++){
                 totalWeight += localData[i].weight;
                 totalIncome = totalIncome + ((localData[i].price*localData[i].weight)*100)/100;
+                //最高重量
                 if(hightWeight < localData[i].weight){
                     hightWeight = localData[i].weight;
                 }
+                //最高花价
+                if(hightPrice < localData[i].price){
+                    hightPrice = localData[i].price;
+                }
+                //最高收入
                 var temp = ((localData[i].price*localData[i].weight)*100)/100;
                 if(hightIncome < temp ) {
                     hightIncome = temp;
                 }
             }
             //总计赋值
-            this.totalCount[0].totalWeight = Math.round((totalWeight*100)/100);
-            this.totalCount[0].totalIncome = Math.round((totalIncome*100)/100);
+            this.totalCount[0].totalWeight = Math.round(totalWeight*100)/100;
+            this.totalCount[0].totalIncome = Math.round(totalIncome*100)/100;
             //历史之最赋值
-            this.totalCount[1].hightWeight = Math.round((hightWeight*100)/100);
-            this.totalCount[1].hightIncome = Math.round((hightIncome*100)/100);
+            this.totalCount[1].hightWeight = Math.round(hightWeight*100)/100;
+            this.totalCount[1].hightIncome = Math.round(hightIncome*100)/100;
+            this.totalCount[1].hightPrice = Math.round(hightPrice*100)/100;
 
         },
         //本月总计显示隐藏
