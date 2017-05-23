@@ -228,8 +228,8 @@ body {
 }
 #wordText .bottombtn div{
     flex: 1;
-    height:5rem;
-    line-height:5rem;
+    height:6rem;
+    line-height:6rem;
     text-align: center;
     font-size:1.6rem;
     color:#3399FF;
