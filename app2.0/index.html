@@ -38,13 +38,14 @@
             <div class="box" @click="stopPro()">
                 <div class="countbox">
                     <h1><i class="icon-signal"></i>&nbsp;本月总计</h1>
-                    <h3><i class="icon-trophy"></i>&nbsp;总重量：<strong>{{1111}}</strong></h3>
-                    <h3><i class="icon-strikethrough"></i>&nbsp;总收入：<strong>{{1111}}</strong></h3>
+                    <h3><i class="icon-trophy"></i>&nbsp;总重量：<strong>{{crrMonthCount[0].totalWeight}}</strong>&nbsp;斤</h3>
+                    <h3><i class="icon-strikethrough"></i>&nbsp;总收入：<strong>{{crrMonthCount[0].totalIncome}}</strong>&nbsp;元</h3>
                 </div>
                 <div class="countbox">
                     <h1><i class="icon-bar-chart"></i>&nbsp;本月之最</h1>
-                    <h3><i class="icon-trophy"></i>&nbsp;最高重量：<strong>{{1111}}</strong></h3>
-                    <h3><i class="icon-strikethrough"></i>&nbsp;最高收入：<strong>{{1111}}</strong></h3>
+                    <h3><i class="icon-trophy"></i>&nbsp;最高重量：<strong>{{crrMonthCount[1].hightWeight}}</strong>&nbsp;斤</h3>
+                    <h3><i class="icon-strikethrough"></i>&nbsp;最高收入：<strong>{{crrMonthCount[1].hightIncome}}</strong>&nbsp;元</h3>
+                    <h3><i class="icon-list-alt"></i>&nbsp;最高花价：<strong>{{crrMonthCount[1].hightPrice}}</strong>&nbsp;元/斤</h3>
                 </div>
             </div>
         </div>

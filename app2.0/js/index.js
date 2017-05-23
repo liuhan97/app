@@ -39,10 +39,10 @@ var vue = new Vue({
         //全部总计
         totalCount:[
             {totalWeight:'',totalIncome:''},
-            {hightWeight:'',hightIncome:''}
+            {hightWeight:'',hightIncome:'',hightPrice:''}
         ],
-        //历史总计
-        hisCount:[
+        //本月总计
+        crrMonthCount:[
             {totalWeight:'',totalIncome:''},
             {hightWeight:'',hightIncome:'',hightPrice:''}
         ],
@@ -116,6 +116,55 @@ var vue = new Vue({
         },
         crrShowWrap:function(){
             this.crrShowflag = true;
+            var localData = JSON.parse(localStorage.getItem("data"));
+            var crrMonthData = [];  //本月数据容器
+            var data,crrMonth,crrYear;
+            var nowYear = new Date().getFullYear();
+            var nowMonth = new Date().getMonth()+1;
+            //过滤本月数据
+            for(var i = 0, len = localData.length; i < len; i++){
+                data = (localData[i].data.split(" "))[0];
+                crrMonth = parseInt((data.split("-"))[1]);  //数据里面的月
+                crrYear = parseInt((data.split("-"))[0]);   //数据里面的年
+                //判断数据里面日期是否等于当前月，等于则存储起来
+                if(nowYear == crrYear && nowMonth == crrMonth){
+                    crrMonthData[crrMonthData.length] = localData[i];
+                }
+            }
+
+            //赋值输出到页面
+            var totalWeight=0,
+                totalIncome=0,
+                hightWeight=0,
+                hightPrice=0,
+                hightIncome=0;
+
+            //获取本地缓存数据
+            for(var i = 0, len = crrMonthData.length; i < len; i++){
+                totalWeight += crrMonthData[i].weight;
+                totalIncome = totalIncome + ((crrMonthData[i].price*crrMonthData[i].weight)*100)/100;
+                //最高重量
+                if(hightWeight < crrMonthData[i].weight){
+                    hightWeight = crrMonthData[i].weight;
+                }
+                //最高花价
+                if(hightPrice < crrMonthData[i].price){
+                    hightPrice = crrMonthData[i].price;
+                }
+                //最高收入
+                var temp = ((crrMonthData[i].price*crrMonthData[i].weight)*100)/100;
+                if(hightIncome < temp ) {
+                    hightIncome = temp;
+                }
+            }
+            //总计赋值
+            this.crrMonthCount[0].totalWeight = Math.round(totalWeight*100)/100;
+            this.crrMonthCount[0].totalIncome = Math.round(totalIncome*100)/100;
+            //历史之最赋值
+            this.crrMonthCount[1].hightWeight = Math.round(hightWeight*100)/100;
+            this.crrMonthCount[1].hightIncome = Math.round(hightIncome*100)/100;
+            this.crrMonthCount[1].hightPrice = Math.round(hightPrice*100)/100;
+
         },
         //添加工作记录
         addItem: function(e) {
