@@ -86,9 +86,21 @@ var vue = new Vue({
             for(var i = 0, len = localData.length; i < len; i++){
                 totalWeight += localData[i].weight;
                 totalIncome = totalIncome + ((localData[i].price*localData[i].weight)*100)/100;
+                if(hightWeight < localData[i].weight){
+                    hightWeight = localData[i].weight;
+                }
+                var temp = ((localData[i].price*localData[i].weight)*100)/100;
+                if(hightIncome < temp ) {
+                    hightIncome = temp;
+                }
             }
+            //总计赋值
             this.totalCount[0].totalWeight = totalWeight;
             this.totalCount[0].totalIncome = totalIncome;
+            //历史之最赋值
+            this.totalCount[1].hightWeight = hightWeight;
+            this.totalCount[1].hightIncome = hightIncome;
+
         },
         //本月总计显示隐藏
         crrwraphide:function(){
