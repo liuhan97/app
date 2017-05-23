@@ -95,11 +95,11 @@ var vue = new Vue({
                 }
             }
             //总计赋值
-            this.totalCount[0].totalWeight = totalWeight;
-            this.totalCount[0].totalIncome = totalIncome;
+            this.totalCount[0].totalWeight = Math.round((totalWeight*100)/100);
+            this.totalCount[0].totalIncome = Math.round((totalIncome*100)/100);
             //历史之最赋值
-            this.totalCount[1].hightWeight = hightWeight;
-            this.totalCount[1].hightIncome = hightIncome;
+            this.totalCount[1].hightWeight = Math.round((hightWeight*100)/100);
+            this.totalCount[1].hightIncome = Math.round((hightIncome*100)/100);
 
         },
         //本月总计显示隐藏
