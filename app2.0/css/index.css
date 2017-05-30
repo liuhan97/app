@@ -144,9 +144,11 @@ body {
     font-size: 1.6rem;
     -webkit-tap-highlight-color: transparent;
 }
-#wordText .wrapbox .box textarea::-webkit-input-placeholder{
-    font-size:1.6rem;
+
+#wordText .wrapbox .box textarea::-webkit-input-placeholder {
+    font-size: 1.6rem;
 }
+
 #wordText .wrapbox .box .num {
     height: 4rem;
     width: 41%;
@@ -178,24 +180,28 @@ body {
 #wordText .wrapbox .box .fr {
     float: right;
 }
-#wordText .wrapbox .box .countbox{
-    margin:1rem 0;
+
+#wordText .wrapbox .box .countbox {
+    margin: 1rem 0;
 }
 
-#wordText .wrapbox .box .countbox h1{
-    color:#666;
-    font-weight:normal;
-    margin-bottom:1rem;
+#wordText .wrapbox .box .countbox h1 {
+    color: #666;
+    font-weight: normal;
+    margin-bottom: 1rem;
 }
-#wordText .wrapbox .box .countbox h3{
-    font-size:1.8rem;
-    font-weight:normal;
-    margin:0.8rem 0;
-    color:green;
+
+#wordText .wrapbox .box .countbox h3 {
+    font-size: 1.8rem;
+    font-weight: normal;
+    margin: 0.8rem 0;
+    color: green;
 }
-#wordText .wrapbox .box .countbox h3 strong{
-    color:red;
+
+#wordText .wrapbox .box .countbox h3 strong {
+    color: red;
 }
+
 #wordText .wrapbox .box .bluebtn {
     margin-top: 0.8rem;
     border-radius: 0.5rem;
@@ -215,28 +221,30 @@ body {
 
 #wordText .contentlist .textcontent {
     margin-bottom: 1rem;
-    color:orange;
+    color: orange;
     line-height: 24px;
     font-size: 1.8rem;
 }
 
 #wordText .bottombtn {
     position: fixed;
-    display:flex;
+    display: flex;
     bottom: 0;
-    width:100%;
-    height:6rem;
+    width: 100%;
+    height: 6rem;
     background: #fff;
 }
-#wordText .bottombtn div{
+
+#wordText .bottombtn div {
     flex: 1;
-    height:6rem;
-    line-height:6rem;
+    height: 6rem;
+    line-height: 6rem;
     text-align: center;
-    font-size:1.6rem;
-    color:#3399FF;
+    font-size: 1.6rem;
+    color: #3399FF;
     -webkit-tap-highlight-color: transparent;
 }
+
 #wordText .contentlist .delbtn {
     margin-left: 0.5rem;
     color: #3399FF;

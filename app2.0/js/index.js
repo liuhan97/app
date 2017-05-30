@@ -37,18 +37,18 @@ var vue = new Vue({
         textcontent: dataobj,
         textcontents: [],
         //全部总计
-        totalCount:[
-            {totalWeight:'',totalIncome:''},
-            {hightWeight:'',hightIncome:'',hightPrice:''}
+        totalCount: [
+            { totalWeight: '', totalIncome: '' },
+            { hightWeight: '', hightIncome: '', hightPrice: '' }
         ],
         //本月总计
-        crrMonthCount:[
-            {totalWeight:'',totalIncome:''},
-            {hightWeight:'',hightIncome:'',hightPrice:''}
+        crrMonthCount: [
+            { totalWeight: '', totalIncome: '' },
+            { hightWeight: '', hightIncome: '', hightPrice: '' }
         ],
         rcShowflag: false,
-        allShowflag:false,
-        crrShowflag:false
+        allShowflag: false,
+        crrShowflag: false
     },
     /*
     computed: {
@@ -58,11 +58,11 @@ var vue = new Vue({
     },*/
     methods: {
         //点击遮罩层消失
-        wraphide:function(){
+        wraphide: function() {
             this.rcShowflag = false;
         },
         //阻止冒泡
-        stopPro:function(e){
+        stopPro: function(e) {
             e = e || event;
             e.stopPropagation();
         },
@@ -71,99 +71,99 @@ var vue = new Vue({
             this.rcShowflag = true;
         },
         //全部总计显示隐藏
-        allwraphide:function(){
+        allwraphide: function() {
             this.allShowflag = false;
         },
-        allshowWrap:function(){
+        allshowWrap: function() {
             this.allShowflag = true;
-            var totalWeight=0,
-                totalIncome=0,
-                hightWeight=0,
-                hightPrice=0,
-                hightIncome=0;
+            var totalWeight = 0,
+                totalIncome = 0,
+                hightWeight = 0,
+                hightPrice = 0,
+                hightIncome = 0;
 
             //获取本地缓存数据
             var localData = JSON.parse(localStorage.getItem("data"));
-            for(var i = 0, len = localData.length; i < len; i++){
+            for (var i = 0, len = localData.length; i < len; i++) {
                 totalWeight += localData[i].weight;
-                totalIncome = totalIncome + ((localData[i].price*localData[i].weight)*100)/100;
+                totalIncome = totalIncome + ((localData[i].price * localData[i].weight) * 100) / 100;
                 //最高重量
-                if(hightWeight < localData[i].weight){
+                if (hightWeight < localData[i].weight) {
                     hightWeight = localData[i].weight;
                 }
                 //最高花价
-                if(hightPrice < localData[i].price){
+                if (hightPrice < localData[i].price) {
                     hightPrice = localData[i].price;
                 }
                 //最高收入
-                var temp = ((localData[i].price*localData[i].weight)*100)/100;
-                if(hightIncome < temp ) {
+                var temp = ((localData[i].price * localData[i].weight) * 100) / 100;
+                if (hightIncome < temp) {
                     hightIncome = temp;
                 }
             }
             //总计赋值
-            this.totalCount[0].totalWeight = Math.round(totalWeight*100)/100;
-            this.totalCount[0].totalIncome = Math.round(totalIncome*100)/100;
+            this.totalCount[0].totalWeight = Math.round(totalWeight * 100) / 100;
+            this.totalCount[0].totalIncome = Math.round(totalIncome * 100) / 100;
             //历史之最赋值
-            this.totalCount[1].hightWeight = Math.round(hightWeight*100)/100;
-            this.totalCount[1].hightIncome = Math.round(hightIncome*100)/100;
-            this.totalCount[1].hightPrice = Math.round(hightPrice*100)/100;
+            this.totalCount[1].hightWeight = Math.round(hightWeight * 100) / 100;
+            this.totalCount[1].hightIncome = Math.round(hightIncome * 100) / 100;
+            this.totalCount[1].hightPrice = Math.round(hightPrice * 100) / 100;
 
         },
         //本月总计显示隐藏
-        crrwraphide:function(){
+        crrwraphide: function() {
             this.crrShowflag = false;
         },
-        crrShowWrap:function(){
+        crrShowWrap: function() {
             this.crrShowflag = true;
             var localData = JSON.parse(localStorage.getItem("data"));
-            var crrMonthData = [];  //本月数据容器
-            var data,crrMonth,crrYear;
+            var crrMonthData = []; //本月数据容器
+            var data, crrMonth, crrYear;
             var nowYear = new Date().getFullYear();
-            var nowMonth = new Date().getMonth()+1;
+            var nowMonth = new Date().getMonth() + 1;
             //过滤本月数据
-            for(var i = 0, len = localData.length; i < len; i++){
+            for (var i = 0, len = localData.length; i < len; i++) {
                 data = (localData[i].data.split(" "))[0];
-                crrMonth = parseInt((data.split("-"))[1]);  //数据里面的月
-                crrYear = parseInt((data.split("-"))[0]);   //数据里面的年
+                crrMonth = parseInt((data.split("-"))[1]); //数据里面的月
+                crrYear = parseInt((data.split("-"))[0]); //数据里面的年
                 //判断数据里面日期是否等于当前月，等于则存储起来
-                if(nowYear == crrYear && nowMonth == crrMonth){
+                if (nowYear == crrYear && nowMonth == crrMonth) {
                     crrMonthData[crrMonthData.length] = localData[i];
                 }
             }
 
             //赋值输出到页面
-            var totalWeight=0,
-                totalIncome=0,
-                hightWeight=0,
-                hightPrice=0,
-                hightIncome=0;
+            var totalWeight = 0,
+                totalIncome = 0,
+                hightWeight = 0,
+                hightPrice = 0,
+                hightIncome = 0;
 
             //获取本地缓存数据
-            for(var i = 0, len = crrMonthData.length; i < len; i++){
+            for (var i = 0, len = crrMonthData.length; i < len; i++) {
                 totalWeight += crrMonthData[i].weight;
-                totalIncome = totalIncome + ((crrMonthData[i].price*crrMonthData[i].weight)*100)/100;
+                totalIncome = totalIncome + ((crrMonthData[i].price * crrMonthData[i].weight) * 100) / 100;
                 //最高重量
-                if(hightWeight < crrMonthData[i].weight){
+                if (hightWeight < crrMonthData[i].weight) {
                     hightWeight = crrMonthData[i].weight;
                 }
                 //最高花价
-                if(hightPrice < crrMonthData[i].price){
+                if (hightPrice < crrMonthData[i].price) {
                     hightPrice = crrMonthData[i].price;
                 }
                 //最高收入
-                var temp = ((crrMonthData[i].price*crrMonthData[i].weight)*100)/100;
-                if(hightIncome < temp ) {
+                var temp = ((crrMonthData[i].price * crrMonthData[i].weight) * 100) / 100;
+                if (hightIncome < temp) {
                     hightIncome = temp;
                 }
             }
             //总计赋值
-            this.crrMonthCount[0].totalWeight = Math.round(totalWeight*100)/100;
-            this.crrMonthCount[0].totalIncome = Math.round(totalIncome*100)/100;
+            this.crrMonthCount[0].totalWeight = Math.round(totalWeight * 100) / 100;
+            this.crrMonthCount[0].totalIncome = Math.round(totalIncome * 100) / 100;
             //历史之最赋值
-            this.crrMonthCount[1].hightWeight = Math.round(hightWeight*100)/100;
-            this.crrMonthCount[1].hightIncome = Math.round(hightIncome*100)/100;
-            this.crrMonthCount[1].hightPrice = Math.round(hightPrice*100)/100;
+            this.crrMonthCount[1].hightWeight = Math.round(hightWeight * 100) / 100;
+            this.crrMonthCount[1].hightIncome = Math.round(hightIncome * 100) / 100;
+            this.crrMonthCount[1].hightPrice = Math.round(hightPrice * 100) / 100;
 
         },
         //添加工作记录
@@ -180,7 +180,7 @@ var vue = new Vue({
                 index = parseInt(localData[0].id) + 1;
             }
 
-            var numReg = /^\d+(\.\d+)?$/;    //小数字正则
+            var numReg = /^\d+(\.\d+)?$/; //小数字正则
             var text = document.getElementsByClassName("words")[0].value;
             var price = document.getElementById("price").value;
             var weight = document.getElementById("weight").value;
@@ -189,7 +189,7 @@ var vue = new Vue({
 
             var data = new Date().format("yyyy-MM-dd hh:mm:ss");
             var flag = (text !== "" && price !== "" && weight !== "" && numReg.test(price) && numReg.test(weight));
-            if (flag){
+            if (flag) {
                 tempobj.id = index; //设置id
                 tempobj.price = floatprice; //设置花价
                 tempobj.weight = floatweight; //设置重量
