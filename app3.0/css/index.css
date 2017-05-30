@@ -150,8 +150,9 @@ body {
 }
 
 #wordText .wrapbox .box .num {
+    padding:0;
     height: 4rem;
-    width: 90%;
+    width: 92%;
     display: block;
     margin-bottom: 1rem;
     font-size: 1.6rem;
