@@ -79,7 +79,7 @@ html {
     font-size: 62.5%;
     font-family: arial, "Hiragino Sans GB", "Microsoft Yahei", "微软雅黑", "宋体", Tahoma, Arial, Helvetica, STHeiti;
 }
-.hidden{
+#wordText .hidden{
     display:none;
 }
 .bluebtn {
