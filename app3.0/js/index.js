@@ -188,7 +188,7 @@ var vue = new Vue({
             var floatweight = parseFloat(weight);
 
             var data = new Date().format("yyyy-MM-dd hh:mm:ss");
-            var flag = (text !== "" && price !== "" && weight !== "" && numReg.test(price) && numReg.test(weight));
+            var flag = (text !== "" && weight !== "" && numReg.test(weight));
             if (flag) {
                 tempobj.id = index; //设置id
                 tempobj.price = floatprice; //设置花价
