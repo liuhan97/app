@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>记账本</title>
+    <link rel="apple-touch-icon" sizes="57x57" href="img/app.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta content="telephone=yes" name="format-detection" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="white">
+    <meta name="x5-fullscreen" content="true">
+    <meta name="apple-touch-fullscreen" content="yes">
+    <link rel="stylesheet" href="css/font-awesome.min.css" />
+    <link rel="stylesheet" href="css/index.css" />
+    <script type="text/javascript" src="js/vue.min.js"></script>
+
+</head>
+
+<body>
+    <div id="wordText">
+
+        <!--我要记录box-->
+        <div class="wrapbox" v-bind:class="{'active':rcShowflag}" @click="wraphide()">
+            <div class="box" @click="stopPro()">
+                <form>
+                    <input type="number" placeholder="多少钱一斤花（块）" class="num fl" id="price">
+                    <input type="number" placeholder="多少斤花（斤）" class="num fr" id="weight">
+                    <textarea placeholder="请输入你要记录的内容，限定200个字 " maxlength="200" class="words"></textarea>
+                    <div class="bluebtn" @click="addItem()">立即保存</div>
+                </form>
+            </div>
+        </div>
+        <!--我要记录box-->
+
+        <!--本月总计box-->
+        <div class="wrapbox" v-bind:class="{'active':crrShowflag}" @click="crrwraphide()">
+            <div class="box" @click="stopPro()">
+                <div class="countbox">
+                    <h1><i class="icon-signal"></i>&nbsp;本月总计</h1>
+                    <h3><i class="icon-trophy"></i>&nbsp;总消费：<strong>{{crrMonthCount[0].totalWeight}}</strong>&nbsp;元</h3>
+                    <h3><i class="icon-trophy"></i>&nbsp;最高消费：<strong>{{crrMonthCount[1].hightWeight}}</strong>&nbsp;斤</h3>
+                    <h3 class="hidden"><i class="icon-strikethrough"></i>&nbsp;总收入：<strong>{{crrMonthCount[0].totalIncome}}</strong>&nbsp;元</h3>
+                </div>
+                <div class="countbox hidden">
+                    <h1><i class="icon-bar-chart"></i>&nbsp;本月之最</h1>
+                    <h3><i class="icon-trophy"></i>&nbsp;最高重量：<strong>{{crrMonthCount[1].hightWeight}}</strong>&nbsp;斤</h3>
+                    <h3><i class="icon-strikethrough"></i>&nbsp;最高收入：<strong>{{crrMonthCount[1].hightIncome}}</strong>&nbsp;元</h3>
+                    <h3><i class="icon-list-alt"></i>&nbsp;最高花价：<strong>{{crrMonthCount[1].hightPrice}}</strong>&nbsp;元/斤</h3>
+                </div>
+            </div>
+        </div>
+        <!--本月总计box-->
+
+        <!--全部总计box-->
+        <div class="wrapbox" v-bind:class="{'active':allShowflag}" @click="allwraphide()">
+            <div class="box" @click="stopPro()">
+                <div class="countbox">
+                    <h1><i class="icon-signal"></i>&nbsp;全部总计</h1>
+                    <h3><i class="icon-trophy"></i>&nbsp;总消费：<strong>{{totalCount[0].totalWeight}}&nbsp;</strong>元</h3>
+                    <h3><i class="icon-trophy"></i>&nbsp;最高消费：<strong>{{totalCount[1].hightWeight}}</strong>&nbsp;元</h3>
+                    <h3 class="hidden"><i class="icon-strikethrough"></i>&nbsp;总收入：<strong>{{totalCount[0].totalIncome}}&nbsp;</strong>元</h3>
+                </div>
+                <div class="countbox hidden">
+                    <h1><i class="icon-bar-chart"></i>&nbsp;历史之最</h1>
+                    <h3><i class="icon-trophy"></i>&nbsp;最高重量：<strong>{{totalCount[1].hightWeight}}</strong>&nbsp;斤</h3>
+                    <h3><i class="icon-strikethrough"></i>&nbsp;最高收入：<strong>{{totalCount[1].hightIncome}}</strong>&nbsp;元</h3>
+                    <h3><i class="icon-list-alt"></i>&nbsp;最高花价：<strong>{{totalCount[1].hightPrice}}</strong>&nbsp;斤/元</h3>
+                </div>
+            </div>
+        </div>
+        <!--全部总计box-->
+
+        <div class="contentlist">
+            <div class="item" v-for="(value, index) in textcontent">
+                <p class="textcontent"><i class="icon-tags"></i>&nbsp;{{value.content}}</p>
+                <p>
+                    <span class="price number hidden"><i class="icon-strikethrough"></i>&nbsp;单价：(<strong>{{value.price}}</strong>)元/斤</span>
+                    <span class="weight number"><i class="icon-trophy"></i>&nbsp;消费：(<strong>{{value.weight}}</strong>)斤</span>
+                    <span class="total number hidden"><i class="icon-strikethrough"></i>&nbsp;收入：(<strong>{{Math.round(value.weight*value.price*100)/100}}</strong>)元</span>
+                </p>
+                <p>
+                    <span class="delbtn" @click="delItem(index)"><i class="icon-remove-circle"></i>&nbsp;删除</span>
+                    <span class="data"><i class="icon-calendar"></i>&nbsp;{{value.data}}</span>
+                </p>
+            </div>
+        </div>
+
+        <div class="bottombtn">
+            <div class="savebtn" @click="showWrap()"><i class="icon-pencil"></i>&nbsp;我要记录</div>
+            <div class="currmonthbtn" @click="crrShowWrap()"><i class="icon-signal"></i>&nbsp;本月消费</div>
+            <div class="totalbtn" @click="allshowWrap()"><i class="icon-bar-chart"></i>&nbsp;全部消费</div>
+        </div>
+    </div>
+</body>
+
+<script src="js/index.js"></script>
+
+</html>
