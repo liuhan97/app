@@ -263,3 +263,9 @@ body {
 #wordText .contentlist .hidden{
     display:none;
 }
+#wordText .wrapbox .box .hidden{
+    display: none;
+}
+#wordText .wrapbox .box .countbox .hidden{
+    display: none;
+}
