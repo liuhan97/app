@@ -152,6 +152,7 @@ body {
 #wordText .wrapbox .box .num {
     height: 4rem;
     width: 99.5%;
+    display: block;
     margin-bottom: 1rem;
     font-size: 1.6rem;
     box-shadow: 0 0 0.1rem #ccc;
