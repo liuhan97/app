@@ -269,3 +269,6 @@ body {
 #wordText .wrapbox .box .countbox .hidden{
     display: none;
 }
+#wordText .wrapbox .box .hidden{
+    display: none;
+}
